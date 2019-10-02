@@ -19,8 +19,10 @@ def encrypt_caesar(plaintext: str) -> str:
             ciphertext = ciphertext + chr(ord('A') + (ord(c) - ord('A') + 3) % 26)
     return ciphertext
 
-    y= encrypt_caesar('python')
+y= encrypt_caesar('python')
 print(y)
+k= encrypt_caesar('privet')
+print(k)
 
 
 def decrypt_caesar(ciphertext: str) -> str:
@@ -34,7 +36,7 @@ def decrypt_caesar(ciphertext: str) -> str:
     >>> decrypt_caesar("")
     ''
     """
-     plaintext = ""
+    plaintext = ""
     for i in range(len(ciphertext)):
         c = ciphertext[i]
         if 'a' <= c <= 'z':
@@ -43,5 +45,7 @@ def decrypt_caesar(ciphertext: str) -> str:
              plaintext = plaintext + chr((ord(c) - ord('A') - 3) % 26 + ord('A'))
 
     return plaintext
-    x = decrypt_caesar('SBWKRQ')
+x = decrypt_caesar('SBWKRQ')
 print(x)
+u= decrypt_caesar('sulyhw')
+print(u)
