@@ -50,6 +50,7 @@ def multiplicative_inverse(e, phi):
     >>> multiplicative_inverse(7, 40)
     23
     """
+    phi1 = phi
     l = []
     while e != 0 and phi != 0:
         if e > phi:
@@ -65,8 +66,7 @@ def multiplicative_inverse(e, phi):
         x1 = x
         x = y
         y = x1 - x * l[i-1-d]
-    return y % phi
-
+    return y % phi1
 
 
 def generate_keypair(p, q):
