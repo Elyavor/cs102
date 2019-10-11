@@ -12,11 +12,14 @@ def encrypt_caesar(plaintext: str) -> str:
     ciphertext = ""
     for i in range(len(plaintext)):
         c = plaintext[i]
-
-        if ('a' <= c <= 'z'):
+        f1 = bool('a' <= c <= 'z')
+        f2 = bool('A' <= c <= 'Z')
+        if f1:
             ciphertext = ciphertext + chr(ord('a') + (ord(c) - ord('a') + 3) % 26)
-        if ('A' <= c <= 'Z'):
+        if f2:
             ciphertext = ciphertext + chr(ord('A') + (ord(c) - ord('A') + 3) % 26)
+        if not (f1 or f2):
+             ciphertext = ciphertext + c
     return ciphertext
 
 
@@ -33,11 +36,17 @@ def decrypt_caesar(ciphertext):
     >>> decrypt_caesar("")
     ''
     """
-        plaintext = ""
+    plaintext = ""
     for i in range(len(ciphertext)):
         c = ciphertext[i]
-        if 'a' <= c <= 'z':
+        f1 = bool('a' <= c <= 'z')
+        f2 = bool('A' <= c <= 'Z')
+        if f1:
             plaintext = plaintext + chr((ord(c) - ord('a') - 3) % 26 + ord('a'))
-        if 'A' <= c <= 'Z':
+        if f2:
              plaintext = plaintext + chr((ord(c) - ord('A') - 3) % 26 + ord('A'))
+        if not (f1 or f2):
+            plaintext = plaintext + c
     return plaintext
+if __name__ == '__main__':
+    print(encrypt_caesar("python2.5"))
