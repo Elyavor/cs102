@@ -17,15 +17,14 @@ def is_prime(n: int) -> bool:
         return False
     else:
         k = 3
-        h = 0
-        while k <= sqrt(n) and h == 0:
+        while k <= sqrt(n):
             if n % k == 0:
-                h = 1
-        if h == 0:
-            return True
-        else:
-            return False
+                return False
+            k+=1
+        
+        return True
     
+
 def gcd(a, b):
     """
     Euclid's algorithm for determining the greatest common divisor.
