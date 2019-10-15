@@ -37,8 +37,6 @@ def decrypt_caesar(ciphertext):
     plaintext = ""
     for i in range(len(ciphertext)):
         c = ciphertext[i]
-        f1 = bool('a' <= c <= 'z')
-        f2 = bool('A' <= c <= 'Z')
         if 'a' <= c <= 'z':
             plaintext = plaintext + chr((ord(c) - ord('a') - 3) % 26 + ord('a'))
         elif 'A' <= c <= 'Z':
