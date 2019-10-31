@@ -50,13 +50,10 @@ class GameOfLife:
         cells = []
         if x - 1 >= 0 and y - 1 >= 0:
             cells.append(self.curr_generation[x - 1][y - 1])
-        
         if x - 1 >= 0:
             cells.append(self.curr_generation[x - 1][y])
-            
         if x - 1 >= 0 and y + 1 < self.cols:
             cells.append(self.curr_generation[x - 1][y + 1])
-        
         if y - 1 >= 0:
             cells.append(self.curr_generation[x][y - 1])
         if y + 1 < self.cols:
@@ -67,8 +64,8 @@ class GameOfLife:
             cells.append(self.curr_generation[x + 1][y - 1])
         if x + 1 < self.rows:
             cells.append(self.curr_generation[x + 1][y])
-        return cells        
-    
+        return cells     
+
     def get_next_generation(self) -> Grid:
         new_grid = copy.deepcopy(self.curr_generation)
         for i in range(len(self.curr_generation)):
@@ -95,7 +92,7 @@ class GameOfLife:
         """
         Не превысило ли текущее число поколений максимально допустимое.
         """
-        return self.n_generation >= self.max_generations
+        return self.n_generation >= self.max_generations     #type:ignore
 
     @property
     def is_changing(self) -> bool:
