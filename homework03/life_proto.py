@@ -98,8 +98,6 @@ class GameOfLife:
                 else:
                     pygame.draw.rect(self.screen, pygame.Color('white'), (j, i, self.cell_size, self.cell_size))
 
-                                 
-
     def get_neighbours(self, cell: Cell) -> Cells:
         """
         Вернуть список соседних клеток для клетки `cell`.
@@ -119,13 +117,10 @@ class GameOfLife:
         cells = []
         if x - 1 >= 0 and y - 1 >= 0:
             cells.append(self.grid[x - 1][y - 1])
-        
         if x - 1 >= 0:
             cells.append(self.grid[x - 1][y])
-            
         if x - 1 >= 0 and y + 1 < len(self.grid[0]):
             cells.append(self.grid[x - 1][y + 1])
-        
         if y - 1 >= 0:
             cells.append(self.grid[x][y - 1])
         if y + 1 < len(self.grid[0]):
@@ -136,10 +131,8 @@ class GameOfLife:
             cells.append(self.grid[x + 1][y - 1])
         if x + 1 < len(self.grid):
             cells.append(self.grid[x + 1][y])
-        return cells        
-        
-        
-                
+        return cells
+
     def get_next_generation(self) -> Grid:
         """
         Получить следующее поколение клеток.
